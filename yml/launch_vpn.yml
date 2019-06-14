@@ -1,0 +1,6 @@
+- name: PC test
+  hosts: windows
+  tasks:
+
+  - name: Initialisation du VPN
+    win_command: c:\windows\temp\launch_vpn.bat

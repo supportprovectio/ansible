@@ -1,0 +1,74 @@
+- name: Deploiement Acterim
+  hosts: windows
+  tasks:
+
+  #Script copiant tous les logiciels necessaires au déploiement du serveur vers le poste à déployer
+  - name: Copie des logiciels génériques
+    win_robocopy:
+      src: \\172.16.36.162\d\DeploymentShare\Scripts\Install\
+      dest: C:\Windows\Temp
+      flags: /E
+
+  - name: Copie des logiciels clients
+    win_robocopy:
+      src: \\172.16.36.162\d\CLIENTS\GELIN\
+      dest: C:\Windows\Temp
+      flags: /E
+#Instlalation des logiciels via chocolatey
+  - name: Install Firefox
+    win_chocolatey:
+        name:
+        - firefox
+        state: present
+
+  - name: Install Chrome
+    win_chocolatey:
+        name:
+        - googlechrome
+        state: present
+
+  - name: Install 7Zip
+    win_chocolatey:
+        name:
+        - 7zip
+        state: present
+
+
+  - name: Install PDF Creator
+    win_chocolatey:
+        name:
+        - pdfcreator
+        state: present
+
+  - name: Install VLC
+    win_chocolatey:
+        name:
+        - vlc
+        state: present
+#Instalation d'Atera
+  - name: Atera
+    win_msi:
+      path: \\172.16.36.162\d\CLIENTS\GELIN\atera.msi
+      product_id: Atera
+      arguments: /S
+      state: present
+      username: srv-deploy\administrateur
+      userpassword: Pr,v;ct:!
+      changed_when: false
+
+  #Installation de Sophos cloud via le .bat
+  - name: Installation Sophos
+    win_command: c:\windows\temp\SophosAutodeploy.bat
+
+  #l'installation via win_chocolatey ne passe pas pour ces logiciels
+  - name: Install acrobat
+    win_command: choco install adobereader
+
+  - name: Updade acrobat
+    win_command: choco upgrade adobereader
+
+  - name: Install Lenovo update
+    win_command: choco install lenovo-thinkvantage-system-update
+
+  - name: Update Lenovo update
+    win_command: choco upgrade lenovo-thinkvantage-system-update

@@ -1,0 +1,8 @@
+- name: PC test
+  hosts: windows
+  tasks:
+  #Script copiant tous les logiciels necessaires au déploiement du serveur vers le poste à déployer
+     - name: Copie de la conf VPN
+       copy:
+        src: \\172.16.36.162\d\CLIENTS\GELIN\Config
+        dest: C:\Program Files (x86)\Sophos\Sophos SSL VPN Client\config\

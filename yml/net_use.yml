@@ -1,0 +1,6 @@
+- name: PC test
+  hosts: windows
+  tasks:
+#Mappage lecteur
+  - name: create a mapped drive under Z
+    win_command: 'net use z: \\172.16.36.162\d /user:administrateur Pr,v;ct:!'

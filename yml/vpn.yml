@@ -1,0 +1,6 @@
+- name: PC test
+  hosts: windows
+  tasks:
+
+  - name: Installation Sophos
+    win_command: c:\windows\temp\vpn_install.bat

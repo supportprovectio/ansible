@@ -1,0 +1,9 @@
+- name: PC test
+  hosts: windows
+  tasks:
+
+  - name: Import certificat VPN
+    win_certificate_store:
+        path: C:\windows\Temp\cert.cer
+        state: present
+        store_name: TrustedPublisher

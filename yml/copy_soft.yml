@@ -1,0 +1,9 @@
+- name: PC test
+  hosts: windows
+  tasks:
+  #Script copiant tous les logiciels necessaires au déploiement du serveur vers le poste à déployer
+      - name: Copie des logiciels générique
+        win_robocopy:
+          src: \\172.16.36.162\d\DeploymentShare\Scripts\Install
+          dest: C:\Windows\Temp
+          flags: /E

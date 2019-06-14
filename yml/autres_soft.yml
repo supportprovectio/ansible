@@ -1,0 +1,18 @@
+- name: PC test
+  hosts: windows
+  tasks:
+#l'installation via win_chocolatey ne passe pas pour ces logiciels
+  - name: Install acrobat
+    win_command: choco install adobereader
+
+  - name: Updade acrobat
+    win_command: choco upgrade adobereader
+
+  - name: Install Lenovo update
+    win_command: choco install lenovo-thinkvantage-system-update
+
+  - name: Update Lenovo update
+    win_command: choco upgrade lenovo-thinkvantage-system-update
+
+
+    

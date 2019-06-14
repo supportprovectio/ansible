@@ -1,0 +1,32 @@
+- name: Copy vpn installer
+  win_copy:
+    src: "{{ item }}"
+    dest: C:\Windows\Temp\
+  with_items:
+    - vpn.exe
+    - vpn_install.bat
+    - cert.cer
+    - grand_access_vpn.ps1
+
+- name: Import certificat VPN
+  win_certificate_store:
+    path: C:\windows\Temp\cert.cer
+    state: present
+    store_name: TrustedPublisher
+
+- name: Install VPN
+  win_package:
+    path: C:\Windows\Temp\vpn.exe
+    product_id: 'Sophos SSL VPN Client'
+    arguments: /SELECT_SHORTCUTS = 1 /SELECT_OPENVPN = 1 /SELECT_SERVICE = 1 /SELECT_TAP = 1 /SELECT_ASSOCIATIONS = 1 /SELECT_OPENSSL_UTILITIES = 0 /SELECT_EASYRSA = 1 /S 
+    state: present
+
+- name: Modification de droit repertoire Sophos VPN
+  win_shell: c:\windows\temp\grand_access_vpn.ps1
+###############
+#- name: Copy test
+#  win_copy:
+#    src: "{{ item }}"
+#    dest: C:\Windows\Temp\
+#  with_items:
+#    - "{{ test_vpn }}"

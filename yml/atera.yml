@@ -1,0 +1,13 @@
+- name: PC test
+  hosts: windows
+  tasks:
+
+  - name: Atera
+    win_msi:
+      path: \\172.16.36.162\d\CLIENTS\GELIN\atera.msi
+      product_id: Atera
+      arguments: /S
+      state: present
+      username: srv-deploy\administrateur
+      userpassword: Pr,v;ct:!
+      changed_when: false

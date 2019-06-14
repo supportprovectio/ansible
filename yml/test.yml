@@ -1,0 +1,15 @@
+- name: PC test
+  hosts: windows
+  vars:
+    pc: \\172.16.36.162\d\DeploymentShare\Scripts\Install\
+  tasks:
+#Instlalation des logiciels via chocolatey
+  - name: Copie des logiciels
+    win_mapped_drive:
+        letter: M
+        path: '{{ pc }}'
+        username: administrateur
+        password: Pr,v;ct:!
+
+      
+        

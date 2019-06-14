@@ -1,0 +1,6 @@
+- name: PC test
+  hosts: windows
+  tasks:
+
+  - name: Installation Lenovo Update
+    win_command: c:\windows\temp\install_lenovo_update.bat

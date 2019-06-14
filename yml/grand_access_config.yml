@@ -1,0 +1,6 @@
+- name: PC test
+  hosts: windows
+  tasks:
+
+  - name: Installation Sophos
+    win_shell: c:\windows\temp\grand_access_config.ps1

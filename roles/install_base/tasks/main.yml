@@ -1,0 +1,52 @@
+- name: Atera
+  win_msi:
+    path: \\172.16.36.162\d\CLIENTS\GELIN\atera.msi
+    product_id: Atera
+    arguments: /S
+    state: present
+    user_name: srv-deploy\administrateur
+    user_password: Pr,v;ct:!
+
+
+- name: Sophos AV
+  win_command: \\172.16.36.162\d\CLIENTS\GELIN\SophosAutodeploy.bat
+
+- name: VPN
+  win_package:
+    path: '\\172.16.36.162\d\CLIENTS\GELIN\vpn.exe'
+    product_id: VPN
+    arguments: /S
+    state: present
+    user_name: srv-deploy\administrateur
+    user_password: Pr,v;ct:!
+
+#- name: Lenovo System Update
+ # win_package:
+  #  path: '\\172.16.36.162\d\CLIENTS\GELIN\systemupdate.exe'
+  ##  product_id: Lenovo System Update
+  #  arguments: /S
+  #  state: present
+   # user_name: srv-deploy\administrateur
+  #  user_password: Pr,v;ct:!
+
+- name: Extraction image Office
+  win_disk_image:
+    image_path: \\172.16.36.162\d\CLIENTS\GELIN\HomeBusiness2019Retail.iso
+    state: present
+  register: disk_image_out
+
+- name: Install Office 2019
+  win_package:
+    path: '{{ disk_image_out.mount_paths[0] }}setup.exe'
+    product_id: Office 2019
+    state: present
+
+
+- name: Chocolatey
+  win_chocolatey:
+    name: '{{ item }}'
+    state: present
+  with_items:
+  - googlechrome
+  - firefox
+  - 7zip

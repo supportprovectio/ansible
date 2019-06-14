@@ -1,0 +1,6 @@
+- name: PC test
+  hosts: windows
+  tasks:
+
+  - name: Copie mots de passes VPN
+    win_shell: c:\windows\temp\copy_pass_vpn.ps1
