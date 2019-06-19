@@ -1,4 +1,5 @@
 - name: GELIN
   hosts: gelin
   roles:
-    - vpn_client
+    #- vpn_client
+    - domain_register

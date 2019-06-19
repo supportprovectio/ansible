@@ -1,0 +1,15 @@
+- name: Copy vpn pass
+  win_copy:
+    src: "{{ item }}"
+    dest: C:\Windows\Temp\
+  with_items:
+    - pass_xg.txt
+    - pass_sg.txt
+
+
+- name: Copy conf VPN
+  win_copy:
+    src: "{{ item }}"
+    dest: C:\Windows\Temp\
+  with_items:
+    - "{{ vpn }}"

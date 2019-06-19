@@ -1,0 +1,4 @@
+- name: DEFAULT
+  hosts: default
+  roles:
+    - logiciels

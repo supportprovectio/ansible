@@ -1,4 +1,4 @@
-test_vpn: ../../../gelin/test_vpn.bat
+vpn: ../../../provectio_ssl_vpn_config.ovpn
 
 ansible_user: administrateur
 ansible_password: rootsan
