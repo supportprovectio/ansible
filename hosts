@@ -17,7 +17,7 @@
 
 # Ex 2: A collection of hosts belonging to the 'webservers' group
 [default]
-172.16.36.184
+#172.16.36.184
 
 #[webservers]
 #alpha.example.org
