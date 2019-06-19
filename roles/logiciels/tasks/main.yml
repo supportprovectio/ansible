@@ -29,6 +29,12 @@
         - vlc
         state: present
 
+  - name: Install Greenshot
+    win_chocolatey:
+        name:
+        - greenshot
+        state: present
+
   - name: Install Lenovo Update
     win_chocolatey:
         name:
