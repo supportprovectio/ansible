@@ -1,0 +1,4 @@
+- name: default_cdea
+  hosts: default_cdea
+  roles:
+    - sophos_antivirus_temp

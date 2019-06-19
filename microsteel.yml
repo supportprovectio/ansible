@@ -1,5 +1,0 @@
-- name: MICROSTEEL
-  hosts: microsteel
-  roles:
-    #- vpn_client
-    - logiciels
