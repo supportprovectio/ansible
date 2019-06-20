@@ -11,6 +11,5 @@
 # Ex 1: Ungrouped hosts, specify before any group headers.
 
 
-[default]
-172.16.36.154
-172.16.36.117
+[default_cdea]
+172.16.36.184

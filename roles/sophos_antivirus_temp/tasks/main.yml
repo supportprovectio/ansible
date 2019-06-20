@@ -11,6 +11,6 @@
   win_package:
     path: C:\Windows\Temp\SophosSetup.exe
     product_id: '{85F78DA7-8E8E-49C9-969F-A62D2B43C046}'
-    arguments: '--customertoken=c89c583b-9c23-4b26-847c-4dc87173b0f4 --mgmtserver=dzr-mcs-amzn-eu-west-1-9af7.upe.p.hmr.sophos.com --products=antivirus --quiet'
+    arguments: '--customertoken="{{ sophos_customer_token }}" --mgmtserver="{{ sophos_mgmt_server }}" --products=antivirus --quiet'
     state: present
     
