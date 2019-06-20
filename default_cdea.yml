@@ -1,8 +1,8 @@
 - name: default_cdea
   hosts: default_cdea
   vars:
-    sophos_customer_token: {{ sophos_customer_token }}
-    sophos_mgmt_server: {{ sophos_mgmt_server }}
+    sophos_customer_token: "{{ sophos_customer_token }}"
+    sophos_mgmt_server: "{{ sophos_mgmt_server }}"
 
   roles:
     - sophos_antivirus_temp
