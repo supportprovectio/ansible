@@ -40,3 +40,9 @@
         name:
         - lenovo-thinkvantage-system-update
         state: present
+
+  - name: Install Acrobat reader
+    win_chocolatey:
+        name:
+        - adobereader
+        state: present
