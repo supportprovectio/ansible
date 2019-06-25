@@ -1,15 +1,30 @@
-- name: Copy vpn pass
-  win_copy:
-    src: "{{ item }}"
-    dest: C:\Windows\Temp\
-  with_items:
-    - pass_xg.txt
-    - pass_sg.txt
+#- name: Créer dossier config temp
+#  win_file:
+#    path: c:\Windows\Temp\config\
+#    state: directory
+#
+#- name: Copy vpn pass server to computer
+#  win_copy:
+#    src: "{{ item }}"
+#    dest: C:\Windows\Temp\config\
+#  with_items:
+#    - pass_xg.txt
+#    - pass_sg.txt
+#    - grand_access_vpn.ps1
+#    - provectio_ssl_vpn_config.ovpn
+#    - launch_vpn.bat
+#
+#
+#- name: Modification de droit repertoire Sophos VPN
+#  win_shell: c:\windows\temp\config\grand_access_vpn.ps1
+#
+#- name: Copy pass vpn computer to folder
+#  win_copy:
+#    src: C:\Windows\Temp\config
+#    dest: c:\Program Files (x86)\Sophos\Sophos SSL VPN Client\
+#    remote_src: True
 
-
-- name: Copy conf VPN
-  win_copy:
-    src: "{{ item }}"
-    dest: C:\Windows\Temp\
-  with_items:
-    - "{{ vpn }}"
+- name: Lancement du VPN
+  win_shell:
+    chdir: c:\Program Files (x86)\Sophos\Sophos SSL VPN Client\config
+    cmd: oepnvpn-gui --connect provectio_ssl_vpn_config.ovpn

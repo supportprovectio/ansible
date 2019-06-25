@@ -21,9 +21,10 @@
     arguments: /SELECT_SHORTCUTS = 1 /SELECT_OPENVPN = 1 /SELECT_SERVICE = 1 /SELECT_TAP = 1 /SELECT_ASSOCIATIONS = 1 /SELECT_OPENSSL_UTILITIES = 0 /SELECT_EASYRSA = 1 /S 
     state: present
 
-- name: Modification de droit repertoire Sophos VPN
-  win_shell: c:\windows\temp\grand_access_vpn.ps1
-###############
+#- name: Modification de droit repertoire Sophos VPN
+#  win_shell: c:\windows\temp\grand_access_vpn.ps1
+
+################
 #- name: Copy test
 #  win_copy:
 #    src: "{{ item }}"

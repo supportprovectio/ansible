@@ -1,0 +1,17 @@
+#Change wallpaper
+- name: Copy Wallpaper
+  win_copy:
+    src: "{{ item }}"
+    dest: C:\users\administrateur\pictures\
+  with_items:
+    - wallpaper.bmp
+
+- name: Change wallpaper
+  win_regedit:
+    path: HKCU:\Control Panel\Desktop
+    name: Wallpaper
+    data: C:\users\administrateur\pictures\wallpaper.bmp
+    type: string
+
+- name: Apply wallpaper
+  win_command: rundll32.exe user32.dll, UpdatePerUserSystemParameters
