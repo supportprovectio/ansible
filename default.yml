@@ -4,4 +4,6 @@
 
   roles:
     - logiciels
+    - sophos_antivirus_temp
+    - atera
     - wallpaper
