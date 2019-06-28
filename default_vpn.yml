@@ -1,7 +1,0 @@
-- name: DEFAULT
-  hosts: default
-
-
-  roles:
-    - vpn_client
-
