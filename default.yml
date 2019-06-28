@@ -1,5 +1,5 @@
 - name: DEFAULT
-  hosts: all
+  hosts: default
 
 
   roles:
