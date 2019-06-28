@@ -1,0 +1,11 @@
+#Instlalation Sophos Antivirus
+- name: Copy Sophos installer
+  win_copy:
+    src: "{{ item }}"
+    dest: C:\Windows\Temp\
+  with_items:
+    - windows_update.ps1
+
+#sophos PARC EXPO
+- name: Install Sophos Antivirus
+  win_shell: C:\Windows\Temp\windows_update.ps1
