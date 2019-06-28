@@ -4,7 +4,7 @@
 
   roles:
     - logiciels
-    - sophos_antivirus_temp
+    - sophos
     - atera
     - wallpaper
     - windows_update
