@@ -5,5 +5,4 @@
 
 
   roles:
-    - finish_and_clean
-
+    - windows_update

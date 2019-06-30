@@ -8,5 +8,5 @@
     - windows_update.ps1
 
 #Installation mise à jour Windows
-- name: Install Sophos Antivirus
+- name: Installation mise à jour Windows
   win_shell: C:\Windows\Temp\windows_update.ps1
