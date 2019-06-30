@@ -1,12 +1,5 @@
-#Copie fichier  mise à jour Windows
 
-- name: Copy Windows update script
-  win_copy:
-    src: "{{ item }}"
-    dest: C:\Windows\Temp\
-  with_items:
-    - windows_update.ps1
 
 #Installation mise à jour Windows
 - name: Installation mise à jour Windows
-  win_shell: C:\Windows\Temp\windows_update.ps1
+  win_shell: wuauclt.exe /updatenow
