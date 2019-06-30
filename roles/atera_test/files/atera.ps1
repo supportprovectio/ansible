@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri "http://support.provect.io/GetAgent/Msi/?customerId=3&integratorLogin=clement.lerch@provectio.fr" -OutFile C:\Windows\temp\AteraAgent.msi
