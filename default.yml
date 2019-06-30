@@ -3,9 +3,5 @@
 
 
   roles:
-    - logiciels
-    - sophos
-    - atera
-    - wallpaper
-    - windows_update
+    - finish_and_clean
 

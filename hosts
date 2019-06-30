@@ -1,4 +1,3 @@
 #Toujours laisser un espace au début de la première ligne pour que le script d'ajout d'ip fonctionne
 [default]
-172.16.36.160
-172.16.36.149 
+172.16.36.184
