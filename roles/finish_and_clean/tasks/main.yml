@@ -11,3 +11,5 @@
   win_file:
     path: C:\Windows\Temp
     state: directory
+    
+- win_shell: msg * Le déploiement du poste est terminé.
