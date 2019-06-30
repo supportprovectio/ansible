@@ -1,3 +1,3 @@
-Install-Module PSWindowsUpdate -force
-Get-WindowsUpdate -force
-Install-WindowsUpdate -force
+Install-Module PSWindowsUpdate -Force
+Get-WindowsUpdate -Force
+Install-WindowsUpdate -Force

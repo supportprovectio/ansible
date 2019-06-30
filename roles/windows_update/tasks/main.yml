@@ -1,6 +1,6 @@
 #Copie fichier  mise à jour Windows
 
-- name: Copy Sophos installer
+- name: Copy Windows update script
   win_copy:
     src: "{{ item }}"
     dest: C:\Windows\Temp\
