@@ -2,5 +2,12 @@
 
 
 
-- name: Nettoyage du dossier temp
-  win_file: path=C:\Windows\temp state=absent
+- name: Suppression du dossier temp
+  win_file:
+    path: C:\Windows\Temp\
+    state: absent
+    
+- name: Création du dossier temp
+  win_file:
+    path: C:\Windows\Temp
+    state: directory
