@@ -1,0 +1,12 @@
+#Supprime les fichiers d'installation et notifie de la fin de préparation
+
+- name: Copy clean script
+  win_copy:
+    src: "{{ item }}"
+    dest: C:\Windows\Temp\
+  with_items:
+    - finish_and_clean.ps1
+
+
+- name: Nettoyage du dossier temp
+  win_shell: C:\Windows\Temp\finish_and_clean.ps1
