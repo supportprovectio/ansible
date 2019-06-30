@@ -1,3 +1,6 @@
 #Instlalation Atera
+#- name: Get Atera installer
+ # win_shell: Invoke-WebRequest -Uri "http://support.provect.io/GetAgent/Msi/?customerId={{ "id_client" }}&integratorLogin=clement.lerch@provectio.fr" -OutFile C:\Windows\temp\AteraAgent.msi
+  
 - name: Get Atera installer
-  win_shell: Invoke-WebRequest -Uri "http://support.provect.io/GetAgent/Msi/?customerId={{ "id_client" }}&integratorLogin=clement.lerch@provectio.fr" -OutFile C:\Windows\temp\AteraAgent.msi
+  win_shell: Invoke-WebRequest -Uri "http://support.provect.io/GetAgent/Msi/?customerId=894&integratorLogin=clement.lerch@provectio.fr" -OutFile C:\Windows\temp\AteraAgent.msi
