@@ -1,0 +1,6 @@
+- name: DEFAULT
+  hosts: install_base
+  gather_facts: "false"
+
+  roles:
+    - atera_test

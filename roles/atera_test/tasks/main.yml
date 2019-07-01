@@ -1,6 +1,2 @@
 - name: Copy Atera download script
-  win_copy:
-    src: "{{ item }}"
-    dest: C:\Windows\Temp\
-  with_items:
-    - atera.ps1
+  win_shell: 'Invoke-WebRequest -Uri "http://support.provect.io/GetAgent/Msi/?customerId=2&integratorLogin=clement.lerch@provectio.fr" -OutFile C:\Windows\temp\AteraAgent.msi'
