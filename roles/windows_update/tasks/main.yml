@@ -3,3 +3,6 @@
 #Installation mise à jour Windows
 - name: Installation mise à jour Windows
   win_shell: wuauclt.exe /updatenow
+
+- name: Redémarrage du poste
+  win_shell: shutdown -r -t 0
