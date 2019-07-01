@@ -1,20 +1,39 @@
 - name: SophosCustomerToken
   uri:
-    url: https://app.atera.com/api/v3/customvalues/customerfield/{ id_client }}/SophosSrv
+    url: https://app.atera.com/api/v3/customvalues/customerfield/{ customer_id }}/SophosSrv
     method: GET
     body_format: json
     headers:
       fake-api-key: "7422aade19f94934b0463d7c1964afb6"
+    register: sophossrv
 
 
 - name: SophosMgmtServer
   uri:
-    url: https://app.atera.com/api/v3/customvalues/customerfield/{ id_client }}/SophosKey
+    url: https://app.atera.com/api/v3/customvalues/customerfield/{ customer_id }}/SophosKey
     method: GET
     body_format: json
     headers:
       fake-api-key: "7422aade19f94934b0463d7c1964afb6"
+    register: sophoskey
+
 #- name: SophosMgmtServer
 #  shell: 'curl -X GET --header "Accept: text/json" --header "X-API-KEY: 7422aade19f94934b0463d7c1964afb6" "https://app.atera.com/api/v3/customvalues/customerfield/{ id_client }}/SophosKey"'
 #  register: sophoskey
 #-local-action: shell echo '{{ var_mgmtserver }} > /etc/ansible/roles/atera/files/{{ sophoskey.stdout }}'
+
+#Copie du fichier d'instalaltion générique
+- name: Copy Sophos installer
+  win_copy:
+    src: "{{ item }}"
+    dest: C:\Windows\Temp\
+  with_items:
+    - SophosSetup.exe
+
+#Instlalation Sophos Antivirus
+- name: Install Sophos Antivirus
+  win_package:
+    path: C:\Windows\Temp\SophosSetup.exe
+    product_id: '{85F78DA7-8E8E-49C9-969F-A62D2B43C046}'
+    arguments: '--customertoken={{ sophossrv.stdout }} --mgmtserver={{ sophoskey.stdout }} --products=antivirus --quiet'
+    state: present
