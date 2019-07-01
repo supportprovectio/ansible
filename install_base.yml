@@ -1,8 +1,6 @@
 - name: DEFAULT
-  hosts: default
+  hosts: install_base
   gather_facts: "false"
-
-
 
   roles:
     - logiciels
