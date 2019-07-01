@@ -1,2 +1,2 @@
 - name: Récupération du fichier d'installation d'Atera
-  win_shell: 'Invoke-WebRequest -Uri "http://support.provect.io/GetAgent/Msi/?customerId={{ "customer_id" }}&integratorLogin=clement.lerch@provectio.fr" -OutFile C:\Windows\temp\AteraAgent.msi'
+  win_shell: 'Invoke-WebRequest -Uri "http://support.provect.io/GetAgent/Msi/?customerId={{ customer_id }}&integratorLogin=clement.lerch@provectio.fr" -OutFile C:\Windows\temp\AteraAgent.msi'
