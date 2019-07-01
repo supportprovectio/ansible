@@ -1,11 +1,11 @@
-#Instlalation Atera 
+#Installation Atera 
 - name: Copy Atera installer
   win_copy:
     src: "{{ item }}"
     dest: C:\Windows\Temp\
   with_items:
     - atera.msi
-
+    
 - name: Install atera
   win_msi:
     path: C:\Windows\Temp\atera.msi
