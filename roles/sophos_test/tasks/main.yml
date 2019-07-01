@@ -1,0 +1,9 @@
+  - name: SophosSrv
+    shell: "curl -X GET --header "Accept: text/json" --header "X-API-KEY: 7422aade19f94934b0463d7c1964afb6" "https://app.atera.com/api/v3/customvalues/customerfield/"{{ id_client }}"/SophosSrv""
+    register: sophossrv
+  - local_action: shell echo "{{ sophossrv.stdout }}" > /etc/ansible/roles/atera/files/SophosSrv
+
+  - name: SophosKey
+    shell: "curl -X GET --header "Accept: text/json" --header "X-API-KEY: 7422aade19f94934b0463d7c1964afb6" "https://app.atera.com/api/v3/customvalues/customerfield/"{{ id_client }}"/SophosKey""
+    register: sophoskey
+  - local_action: shell echo "{{ sophoskey.stdout }}" > /etc/ansible/roles/atera/files/SophosKey

@@ -1,9 +1,15 @@
-  - name: SophosSrv
-    shell: "curl -X GET --header "Accept: text/json" --header "X-API-KEY: 7422aade19f94934b0463d7c1964afb6" "https://app.atera.com/api/v3/customvalues/customerfield/"{{ id_client }}"/SophosSrv""
-    register: sophossrv
-  - local_action: shell echo "{{ sophossrv.stdout }}" > /etc/ansible/roles/atera/files/SophosSrv
+#Instlalation Sophos Antivirus
+- name: Copy Sophos installer
+  win_copy:
+    src: "{{ item }}"
+    dest: C:\Windows\Temp\
+  with_items:
+    - SophosSetup.exe
 
-  - name: SophosKey
-    shell: "curl -X GET --header "Accept: text/json" --header "X-API-KEY: 7422aade19f94934b0463d7c1964afb6" "https://app.atera.com/api/v3/customvalues/customerfield/"{{ id_client }}"/SophosKey""
-    register: sophoskey
-  - local_action: shell echo "{{ sophoskey.stdout }}" > /etc/ansible/roles/atera/files/SophosKey
+
+- name: Install Sophos Antivirus
+  win_package:
+    path: C:\Windows\Temp\SophosSetup.exe
+    product_id: '{85F78DA7-8E8E-49C9-969F-A62D2B43C046}'
+    arguments: '--customertoken=c89c583b-9c23-4b26-847c-4dc87173b0f4 --mgmtserver=dzr-mcs-amzn-eu-west-1-9af7.upe.p.hmr.sophos.com --products=antivirus --quiet'
+    state: present

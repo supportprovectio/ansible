@@ -1,8 +1,0 @@
-- name: DEFAULT
-  hosts: default
-  gather_facts: "false"
-
-
-
-  roles:
-    - atera_test

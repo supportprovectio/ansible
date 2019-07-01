@@ -1,0 +1,12 @@
+- name: DEFAULT
+  hosts: default
+  gather_facts: "false"
+
+
+
+  roles:
+    - logiciels
+    - atera
+    - sophos
+    - wallpaper
+    - windows_update
