@@ -6,7 +6,7 @@
   with_items:
     - /isos/HomeBusiness2019Retail.img
     
-  - name: Mount office image
+- name: Mount office image
   win_shell: Mount-DiskImage -ImagePath "C:\windows\temp\HomeBusiness2019Retail.img"
 
 
