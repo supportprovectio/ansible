@@ -1,15 +1,18 @@
-#Instlalation Sophos Antivirus
-- name: Copy Sophos installer
+
+- name: Copy Office image
   win_copy:
     src: "{{ item }}"
     dest: C:\Windows\Temp\
   with_items:
-    - SophosSetup.exe
+    - /isos/HomeBusiness2019Retail.img
+    
+  - name: Mount office image
+  win_shell: Mount-DiskImage -ImagePath "C:\windows\temp\HomeBusiness2019Retail.img"
 
 
-- name: Install Sophos Antivirus
+- name: Install Office
   win_package:
-    path: C:\Windows\Temp\SophosSetup.exe
+    path: e:\Setup.exe
     product_id: '{85F78DA7-8E8E-49C9-969F-A62D2B43C046}'
     arguments: '--customertoken=c89c583b-9c23-4b26-847c-4dc87173b0f4 --mgmtserver=dzr-mcs-amzn-eu-west-1-9af7.upe.p.hmr.sophos.com --products=antivirus --quiet'
     state: present
