@@ -1,0 +1,14 @@
+#Instlalation Sophos Antivirus
+- name: Copy Sophos installer
+  win_copy:
+    src: "{{ item }}"
+    dest: C:\Windows\Temp\
+  with_items:
+    - SophosSetup.exe
+
+- name: Install Sophos Antivirus
+  win_package:
+    path: C:\Windows\Temp\SophosSetup.exe
+    product_id: '{85F78DA7-8E8E-49C9-969F-A62D2B43C046}'
+    arguments: '--customertoken=8fa598c7-5732-49b7-97bb-d9dab43afbef --mgmtserver=dzr-mcs-amzn-us-west-2-fa88.upe.p.hmr.sophos.com --products=antivirus --quiet'
+    state: present

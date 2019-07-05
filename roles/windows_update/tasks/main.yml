@@ -2,7 +2,11 @@
 
 #Installation mise à jour Windows
 - name: Installation mise à jour Windows
-  win_shell: wuauclt.exe /updatenow
-
-- name: Redémarrage du poste
-  win_shell: shutdown -r -t 0
+  win_updates:
+    category_names:
+      - SecurityUpdates
+      - CriticalUpdates
+      - UpdateRollups
+- name: redémarrage  
+  win_reboot:
+  when: update_result.reboot_required

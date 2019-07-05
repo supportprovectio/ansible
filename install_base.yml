@@ -3,4 +3,8 @@
   gather_facts: "false"
 
   roles:
+    - logiciels
+    - atera
+    - sophos_antivirus_temp
     - wallpaper
+    - windows_update
