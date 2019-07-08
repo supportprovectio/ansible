@@ -4,10 +4,10 @@
 - name: Installation mise à jour Windows
   win_updates:
     category_names:
-      - SecurityUpdates
       - CriticalUpdates
-      - UpdateRollups
-      
-- name: redémarrage  
-  win_reboot:
-  when: update_result.reboot_required
+      - DefinitionUpdates
+      - SecurityUpdates
+      - Updates
+    
+    reboot: yes
+    reboot_timeout: 600
