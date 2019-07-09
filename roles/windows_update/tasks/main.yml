@@ -11,3 +11,7 @@
     
     reboot: yes
     reboot_timeout: 600
+
+- name: this will not be counted as a failure
+  command: /bin/false
+  ignore_errors: yes
