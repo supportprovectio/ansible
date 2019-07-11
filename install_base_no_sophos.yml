@@ -1,0 +1,9 @@
+- name: DEFAULT
+  hosts: install_base
+  gather_facts: "false"
+
+  roles:
+    - logiciels
+    - atera
+    - wallpaper
+    - finish_and_clean
