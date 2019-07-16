@@ -3,5 +3,5 @@
   
 - name: Install atera
   win_msi:
-    path: C:\Windows\Temp\AteraAgent.msi
+    path: C:\Windows\temp\AteraAgent.msi
     state: present
