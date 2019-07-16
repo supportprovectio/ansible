@@ -2,16 +2,4 @@
 
 #Installation mise à jour Windows
 - name: Installation mise à jour Windows
-  win_updates:
-    category_names:
-      - CriticalUpdates
-      - DefinitionUpdates
-      - SecurityUpdates
-      - Updates
-    
-    reboot: yes
-    reboot_timeout: 600
-
-- name: this will not be counted as a failure
-  command: /bin/false
-  ignore_errors: yes
+  win_shell: wuauclt /detectnow /updatenow
