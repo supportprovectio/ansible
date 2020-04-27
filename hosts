@@ -1,3 +1,2 @@
-#Toujours laisser un espace en fin de ligne pour que le script d'ajout d'ip fonctionne
 [install_base] 
-172.16.36.192 
+172.16.36.192
