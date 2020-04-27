@@ -1,4 +1,4 @@
-- name: DEFAULT
+- name: Deploiement poste
   hosts: install_base
   gather_facts: "false"
 
