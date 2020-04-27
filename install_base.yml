@@ -1,5 +1,5 @@
 - name: Deploiement poste
-  hosts: install_base
+  hosts: deploy
   gather_facts: "false"
 
   roles:
